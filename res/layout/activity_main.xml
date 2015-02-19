@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="16dp"
+    tools:context=".EditActivity" >
+
+    <EditText
+        android:id="@+id/name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+
+        android:ems="10"
+        android:hint="@string/name_hint" >
+            <requestFocus /></EditText>
+    <EditText
+        android:id="@+id/url_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/name_text"
+
+        android:ems="10"
+        android:hint="@string/url_hint"
+        android:inputType="textUri" >
+
+    
+    </EditText>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/url_text"
+        android:id="@+id/table_params">
+         >
+
+
+    </TableLayout>
+    
+</RelativeLayout>
