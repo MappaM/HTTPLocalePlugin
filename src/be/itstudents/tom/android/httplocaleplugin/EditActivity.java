@@ -42,7 +42,8 @@ public class EditActivity extends ActionBarActivity {
 	private Map<String,ParamRow> params_map;
 	
 	/**
-	 * 
+	 * Return a map of argument->value from a query in a URI
+	 * @param uri The URI
 	 */
 	private Map<String,String> getQueryParameter(Uri uri) {
 	    if (uri.isOpaque()) {
@@ -137,10 +138,8 @@ public class EditActivity extends ActionBarActivity {
 			
 				List<ParamRow> found = new LinkedList<ParamRow>();
 				List<Entry<String,String>> unfound = new LinkedList<Entry<String,String>>();
-				
 				for (Entry<String,String> param : getQueryParameter(uri).entrySet()) {
 					ParamRow row;
-					
 					if (params_map.containsKey(param.getKey())) {
 						Log.v(TAG,param.getKey() + " FOUND");
 						row = params_map.get(param.getKey());
