@@ -11,5 +11,6 @@
     <string name="name_hint">Type a small name for this url</string>
     <string name="url_error">URL %s has been called but returned an error !</string>
     <string name="url_exception">URL %s could *NOT* be called !</string>
+    <string name="url_nonetwork">URL %s could *NOT* be called because you don\'t have an active internet connection !</string>
 
 </resources>
