@@ -95,7 +95,8 @@ public class EditActivity extends ActionBarActivity {
 						Uri.Builder builder = uri.buildUpon();
 						builder.query("");
 						for (Entry <String,ParamRow> param : params_map.entrySet()) {
-							builder.appendQueryParameter(param.getValue().getArg(), param.getValue().getValue());
+							if (param.getValue().getArg() != null && !param.getValue().getArg().equals(""))
+								builder.appendQueryParameter(param.getValue().getArg(), param.getValue().getValue());
 						}
 						url.setText(builder.build().toString());
 						autoUpdate = false;
@@ -245,5 +246,16 @@ public class EditActivity extends ActionBarActivity {
 				
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    if(event.getAction() == KeyEvent.ACTION_DOWN){
+	        switch(keyCode) {
+	        case KeyEvent.KEYCODE_MENU:
+	           openOptionsMenu();
+	           return true;  
+	        }
+	    }
+	    return false;
 	}
 }

@@ -73,11 +73,9 @@ public class ParamRow extends TableRow {
 		mValue.setText(param.getValue());
 	}
 	
-	
 	public String getArg() {
 		return mArg.getText().toString();
 	}
-
 
 	public void setmOnChanged(OnChangeListener mOnChanged) {
 		this.mOnChanged = mOnChanged;

@@ -29,8 +29,6 @@ public final class QueryReceiver extends BroadcastReceiver
 
 	private static final String TAG = "HTTPLocalePlugin.QueryReceiver";
 
-
-
 	class RequestTask implements Runnable {
 
 		private Context context;
