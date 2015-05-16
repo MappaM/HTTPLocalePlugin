@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 
 public class ParamRow extends TableRow {

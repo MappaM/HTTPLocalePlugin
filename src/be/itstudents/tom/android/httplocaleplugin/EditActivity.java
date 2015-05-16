@@ -31,6 +31,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
+@SuppressWarnings("unused")
 public class EditActivity extends ActionBarActivity {
 
 	private EditText url;
