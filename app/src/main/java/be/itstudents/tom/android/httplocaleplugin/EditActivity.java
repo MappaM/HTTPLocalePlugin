@@ -31,7 +31,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-@SuppressWarnings("unused")
 public class EditActivity extends ActionBarActivity {
 
 	private EditText url;
@@ -96,8 +95,7 @@ public class EditActivity extends ActionBarActivity {
 						Uri.Builder builder = uri.buildUpon();
 						builder.query("");
 						for (Entry <String,ParamRow> param : params_map.entrySet()) {
-							if (param.getValue().getArg() != null && !param.getValue().getArg().equals(""))
-								builder.appendQueryParameter(param.getValue().getArg(), param.getValue().getValue());
+							builder.appendQueryParameter(param.getValue().getArg(), param.getValue().getValue());
 						}
 						url.setText(builder.build().toString());
 						autoUpdate = false;
@@ -192,7 +190,7 @@ public class EditActivity extends ActionBarActivity {
 		});
 		
 		
-		final Bundle localeBundle = getIntent().getBundleExtra(com.twofortyfouram.locale.Intent.EXTRA_BUNDLE);
+		final Bundle localeBundle = getIntent().getBundleExtra(com.twofortyfouram.locale.api.Intent.EXTRA_BUNDLE);
 		
 		if (localeBundle != null) {
 			url.setText(localeBundle.getString(Constants.BUNDLE_EXTRA_URL));
@@ -234,29 +232,18 @@ public class EditActivity extends ActionBarActivity {
 		        resultBundle.putString(Constants.BUNDLE_EXTRA_URL, url.getText().toString());
 		        resultBundle.putString(Constants.BUNDLE_EXTRA_NAME, name.getText().toString());
 		        
-		        resultIntent.putExtra(com.twofortyfouram.locale.Intent.EXTRA_BUNDLE, resultBundle);
+		        resultIntent.putExtra(com.twofortyfouram.locale.api.Intent.EXTRA_BUNDLE, resultBundle);
 
 
 		        /*
 		         * The blurb is concise status text to be displayed in the host's UI.
 		         */
-		        resultIntent.putExtra(com.twofortyfouram.locale.Intent.EXTRA_STRING_BLURB, name.getText().toString());
+		        resultIntent.putExtra(com.twofortyfouram.locale.api.Intent.EXTRA_STRING_BLURB, name.getText().toString());
 
 		        setResult(RESULT_OK, resultIntent);
 		        finish();
 				
 		}
 		return super.onOptionsItemSelected(item);
-	}
-	
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-	    if(event.getAction() == KeyEvent.ACTION_DOWN){
-	        switch(keyCode) {
-	        case KeyEvent.KEYCODE_MENU:
-	           openOptionsMenu();
-	           return true;  
-	        }
-	    }
-	    return false;
 	}
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HTTP Locale Plugin</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="url_hint">Type the URL</string>
+    <string name="url_description">An URL to call when this plugin is fired</string>
+    <string name="url_called">URL %s has been called !</string>
+    <string name="action_save">Save</string>
+    <string name="name_hint">Type a small name for this url</string>
+    <string name="url_error">URL %s has been called but returned an error !</string>
+    <string name="url_exception">URL %s could *NOT* be called !</string>
+    <string name="url_nonetwork">URL %s could *NOT* be called because you don\'t have an active internet connection !</string>
+
+</resources>

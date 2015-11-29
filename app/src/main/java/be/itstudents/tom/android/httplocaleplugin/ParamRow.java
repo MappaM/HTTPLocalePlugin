@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 
 public class ParamRow extends TableRow {
@@ -72,9 +73,11 @@ public class ParamRow extends TableRow {
 		mValue.setText(param.getValue());
 	}
 	
+	
 	public String getArg() {
 		return mArg.getText().toString();
 	}
+
 
 	public void setmOnChanged(OnChangeListener mOnChanged) {
 		this.mOnChanged = mOnChanged;

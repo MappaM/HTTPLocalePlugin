@@ -2,14 +2,6 @@ package be.itstudents.tom.android.httplocaleplugin;
 
 import java.io.IOException;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpHead;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -21,11 +13,17 @@ import android.os.HandlerThread;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
 
 public final class QueryReceiver extends BroadcastReceiver
 {
 
-	private static final String TAG = "HTTPLocalePlugin.QueryReceiver";
+	private static final String TAG = "HTTPLocalePlugin.QR";
+
+
 
 	class RequestTask implements Runnable {
 
@@ -52,6 +50,7 @@ public final class QueryReceiver extends BroadcastReceiver
 			this.url = url;
 		}
 
+		OkHttpClient client = new OkHttpClient();
 
 		@Override
 		public void run() {
@@ -61,22 +60,23 @@ public final class QueryReceiver extends BroadcastReceiver
 			if (!isNetworkAvailable()) {
 				msg_id = R.string.url_nonetwork;
 			} else {
-				HttpClient httpclient = new DefaultHttpClient();
-				HttpResponse response;
-				try {
-					response = httpclient.execute(new HttpHead(url));
 
-					StatusLine statusLine = response.getStatusLine();
-					if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+
+
+				Request request = new Request.Builder()
+						.url(url)
+						.build();
+
+
+				try {
+					Response response = client.newCall(request).execute();
+
+					if(response.code() == 200){
 						msg_id = R.string.url_called;
 					} else{
 						msg_id = R.string.url_error;
 
 					}
-
-				} catch (ClientProtocolException e) {
-					msg_id = R.string.url_exception;
-					e.printStackTrace();
 				} catch (IOException e) {
 					msg_id = R.string.url_exception;
 
@@ -113,10 +113,10 @@ public final class QueryReceiver extends BroadcastReceiver
 	@Override
 	public void onReceive(final Context context, final Intent intent)
 	{
-		if (com.twofortyfouram.locale.Intent.ACTION_FIRE_SETTING.equals(intent.getAction()))
+		if (com.twofortyfouram.locale.api.Intent.ACTION_FIRE_SETTING.equals(intent.getAction()))
 		{
 
-			final Bundle bundle = intent.getBundleExtra(com.twofortyfouram.locale.Intent.EXTRA_BUNDLE);
+			final Bundle bundle = intent.getBundleExtra(com.twofortyfouram.locale.api.Intent.EXTRA_BUNDLE);
 			final String url = bundle.getString(Constants.BUNDLE_EXTRA_URL);
 
 			HandlerThread thread = new HandlerThread(TAG);
