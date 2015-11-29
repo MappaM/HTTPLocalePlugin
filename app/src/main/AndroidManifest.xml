@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="be.itstudents.tom.android.httplocaleplugin"
-    android:versionCode="1"
+    android:versionCode="2"
     android:installLocation="internalOnly"
-    android:versionName="1.0" >
+    android:versionName="1.1" >
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-sdk
