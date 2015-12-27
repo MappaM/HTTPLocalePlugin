@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="android-spackle-2.0.3">
+    <ANNOTATIONS>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.twofortyfouram/android-spackle/2.0.3/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.twofortyfouram/android-spackle/2.0.3/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.twofortyfouram/android-spackle/2.0.3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-spackle/2.0.3/702fb070dba2b8aaa9a2fc84be82622239904175/android-spackle-2.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
